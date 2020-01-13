@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../assets/styles/components/Login.scss';
 
@@ -20,7 +21,7 @@ const Login = () => (
             <input type='checkbox' name='' id='cbox1' value='checkbos' />
             Recuérdame
           </label>
-          <a href='/'>Olvidé mi contraseña</a>
+          <Link to='/'>Olvidé mi contraseña</Link>
         </div>
       </form>
       <section className='login__container--social-media'>
@@ -35,7 +36,7 @@ const Login = () => (
       </section>
       <p className='login__container--register'>
         No tienes ninguna cuenta
-        <a href=''>Regístrate</a>
+        <Link to='/register'>Regístrate</Link>
       </p>
     </section>
   </section>
