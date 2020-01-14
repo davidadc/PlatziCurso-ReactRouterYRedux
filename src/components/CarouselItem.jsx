@@ -9,10 +9,11 @@ import playIcon from '../assets/static/play-icon.png';
 import plusIcon from '../assets/static/plus-icon.png';
 
 const CarouselItem = (props) => {
-  const { cover, title, year, contentRating, duration } = props;
+  const { id, cover, title, year, contentRating, duration } = props;
 
   const handleSetFavorite = () => {
     props.setFavorite({
+      id,
       cover,
       title,
       year,
