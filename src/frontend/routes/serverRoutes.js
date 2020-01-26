@@ -22,7 +22,6 @@ const serverRoutes = [
   {
     name: 'NotFound',
     component: NotFound,
-    exact: false,
   },
 ];
 
