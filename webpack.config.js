@@ -1,7 +1,9 @@
+/* eslint-disable comma-dangle */
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/frontend/index.js',
@@ -12,6 +14,30 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          name: 'vendors',
+          chunks: 'all',
+          reuseExistingChunk: true,
+          priority: 1,
+          filename: 'assets/vendor.js',
+          enforce: true,
+          test(module, chunks) {
+            const name = module.nameForCondition && module.nameForCondition();
+            return chunks.some(
+              (chunk) =>
+                // eslint-disable-next-line implicit-arrow-linebreak
+                chunk.name !== 'vendor' && /[\\/]node_modules[\\/]/.test(name)
+            );
+          },
+        },
+      },
+    },
   },
   module: {
     rules: [
@@ -72,6 +98,7 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',
