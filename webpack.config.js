@@ -1,16 +1,16 @@
 /* eslint-disable comma-dangle */
 const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 
 module.exports = {
   entry: './src/frontend/index.js',
+  mode: 'development',
   stats: { children: false },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path: '/',
+    filename: 'assets/app.js',
     publicPath: '/',
   },
   resolve: {
@@ -100,12 +100,8 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebPackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-    }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css',
+      filename: 'assets/app.css',
     }),
   ],
 };
