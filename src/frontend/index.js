@@ -180,5 +180,6 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
+  // eslint-disable-next-line comma-dangle
   document.getElementById('app')
 );
