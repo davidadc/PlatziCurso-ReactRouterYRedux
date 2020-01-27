@@ -36,7 +36,8 @@
     "react-router": "^5.1.2",
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.1.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "webpack-manifest-plugin": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
