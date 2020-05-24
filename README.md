@@ -9,3 +9,7 @@ Falta por completar reto de la última clase: Validar que el buscador funcione.
 ## Curso de Server Side Render con Express - Platzi
 
 En la rama: `ssr`
+
+## Curso de Server Side Render con Express (2020) - Platzi
+
+En la rama: `ssr-2020`
