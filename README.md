@@ -1,11 +1,5 @@
-# Curso de React Router y Redux - Platzi
+# Curso de Server Side Render con Express - Platzi
 
-Fecha de inicio: 12/01/2020
+Fecha de inicio: 25/01/2020
 
-Fecha de fin: 14/01/2020
-
-Falta por completar reto de la última clase: Validar que el buscador funcione.
-
-## Curso de Server Side Render con Express - Platzi
-
-En la rama: `ssr`
+Fecha de finalización: 27/01/2020
