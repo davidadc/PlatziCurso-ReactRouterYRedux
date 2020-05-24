@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack-cli --config webpack.config.js",
     "start": "webpack-dev-server --open --mode development",
-    "start:dev": "nodemon src/server/index.js"
+    "start:dev": "nodemon src/server/index.js",
+    "lint": "eslint src/frontend/ --ext .js --ext .jsx --fix"
   },
   "keywords": [],
   "author": "",
@@ -43,6 +44,7 @@
     "css-loader": "^3.5.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",

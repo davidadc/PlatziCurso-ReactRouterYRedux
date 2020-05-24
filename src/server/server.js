@@ -10,7 +10,7 @@ import { createStore } from 'redux';
 import { renderRoutes } from 'react-router-config';
 import { StaticRouter } from 'react-router-dom';
 
-import { serverRoutes } from '../frontend/routes/serverRoutes';
+import serverRoutes from '../frontend/routes/serverRoutes';
 import reducer from '../frontend/reducers';
 import initialState from '../frontend/initialState';
 import getManifest from './getManifest';
