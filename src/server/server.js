@@ -5,7 +5,7 @@ import webpack from 'webpack';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import { createStore, compose } from 'redux';
+import { createStore } from 'redux';
 import { renderRoutes } from 'react-router-config';
 import { StaticRouter } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ if (ENV === 'development') {
   app.use(webpackHotMiddleware(compiler));
 }
 
-const setResponse = (html) => {
+const setResponse = (html, preloadedState) => {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -48,6 +48,12 @@ const setResponse = (html) => {
       </head>
       <body>
         <div id="app">${html}</div>
+        <script>
+          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
+            /</g,
+            '\\u003c'
+          )}
+        </script>
         <script src="assets/app.js" type="text/javascript"></script>
       </body>
     </html>
@@ -55,7 +61,9 @@ const setResponse = (html) => {
 };
 
 const renderApp = (req, res) => {
-  const store = createStore(reducer, initialState, compose);
+  const store = createStore(reducer, initialState);
+  const preloadedState = store.getState();
+
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={{}}>
@@ -64,7 +72,7 @@ const renderApp = (req, res) => {
     </Provider>
   );
 
-  res.send(setResponse(html));
+  res.send(setResponse(html, preloadedState));
 };
 
 app.get('*', renderApp);
